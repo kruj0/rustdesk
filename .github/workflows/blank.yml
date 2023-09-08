@@ -7,13 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: keydb
-        uses: pozetroninc/github-action-get-latest-release@master
-        with:
-          owner: rustdesk
-          repo: rustdesk
-          excludes: prerelease, draft
-      
-      - uses: robinraju/release-downloader@v1.8
+        uses: robinraju/release-downloader@v1.8
         with:
           repository: "rustdesk/rustdesk"
           latest: true
@@ -28,4 +22,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: rustdesk-42.exe
+          path: .
 
