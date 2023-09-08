@@ -12,6 +12,15 @@ jobs:
           owner: rustdesk
           repo: rustdesk
           excludes: prerelease, draft
+      
+      - uses: robinraju/release-downloader@v1.8
+        with:
+          repository: "rustdesk/rustdesk"
+          latest: true
+          fileName: "*-x86_64.exe"
 
       - id: output
         run: echo "${{ steps.keydb.outputs.release }}"
+      - id: list
+        run: ls -all 
+
