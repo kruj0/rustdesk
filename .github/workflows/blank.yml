@@ -6,9 +6,9 @@ jobs:
     name: RedisTimeSeries
     runs-on: ubuntu-latest
     steps:
-      - id: latest_release
+      - id: keydb
         uses: pozetroninc/github-action-get-latest-release@master
         with:
-          owner: rustdesk
-          repo: rustdesk
-          excludes: deb,dmg,AppImage,aarch64
+          owner: JohnSully
+          repo: KeyDB
+          excludes: prerelease, draft
