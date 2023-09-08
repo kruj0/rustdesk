@@ -22,7 +22,7 @@ jobs:
       - id: output
         run: echo "${{ steps.keydb.outputs.release }}"
       - id: list
-        run: mv *-x86_64.exe rustdesk-42.exe
+        run: mv *-x86_64.exe 'rustdesk-host=${{vars.host}},key=${{vars.host_pub}}.exe'
       - id: upload
         uses: svenstaro/upload-release-action@v2
         with:
