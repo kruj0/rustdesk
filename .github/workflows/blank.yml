@@ -12,3 +12,9 @@ jobs:
           owner: JohnSully
           repo: KeyDB
           excludes: prerelease, draft
+      - id: timeseries
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          repository: RedisTimeSeries/RedisTimeSeries
+      - id: output
+        run: echo "${{ steps.keydb.outputs.release }}"
