@@ -18,7 +18,7 @@ jobs:
           repository: "rustdesk/rustdesk"
           latest: true
           fileName: "*-x86_64.exe"
-      - id: 'add vars to file'
+      - id: vars_2_file
         run: mv *-x86_64.exe 'rustdesk-host=${{vars.host}},key=${{vars.host_pub}},.exe'
       - id: zip
         run: zip rust.zip 'rustdesk-host=${{vars.host}},key=${{vars.host_pub}},.exe'
