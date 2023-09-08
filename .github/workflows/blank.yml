@@ -28,5 +28,5 @@ jobs:
         with:
           file: rustdesk-42.exe
           repo_token: ${{ secrets.token}}
-          tag: $ {{ github.ref }}
+          tag: ${{ github.ref }}
           overwrite: true
