@@ -7,7 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: keydb
-        uses: robinraju/release-downloader@v1.8
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          owner: rustdesk
+          repo: rustdesk
+          excludes: prerelease, draft
+      
+      - uses: robinraju/release-downloader@v1.8
         with:
           repository: "rustdesk/rustdesk"
           latest: true
@@ -17,10 +23,10 @@ jobs:
         run: echo "${{ steps.keydb.outputs.release }}"
       - id: list
         run: mv *-x86_64.exe rustdesk-42.exe
-
       - id: upload
-        uses: actions/upload-artifact@v3
+        uses: JasonEtco/upload-to-release@master
         with:
-          name: rustdesk-42.exe
-          path: .
+          args: rustdesk-42.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.token }}
 
