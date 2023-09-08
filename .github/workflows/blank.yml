@@ -1,0 +1,14 @@
+name: Build a windows rust image
+on: [push, repository_dispatch]
+
+jobs:
+  build:
+    name: RedisTimeSeries
+    runs-on: ubuntu-latest
+    steps:
+      - id: latest_release
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          owner: rustdesk
+          repo: rustdesk
+          excludes: deb,dmg,AppImage,aarch64
