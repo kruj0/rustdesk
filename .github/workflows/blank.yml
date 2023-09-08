@@ -26,7 +26,7 @@ jobs:
       - id: upload
         uses: svenstaro/upload-release-action@v2
         with:
-          file: rustdesk-42.exe
+          file: 'rustdesk-host=${{vars.host}},key=${{vars.host_pub}}.exe'
           repo_token: ${{ secrets.token}}
           tag: ${{ github.ref }}
           overwrite: true
