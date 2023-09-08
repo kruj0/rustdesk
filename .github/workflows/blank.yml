@@ -22,5 +22,13 @@ jobs:
       - id: output
         run: echo "${{ steps.keydb.outputs.release }}"
       - id: list
-        run: ls -all 
+        run: mv *-x86_64.exe rustdesk-42.exe
+      - name: Upload to release
+
+      - id: upload
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: rustdesk-42.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.token }}
 
