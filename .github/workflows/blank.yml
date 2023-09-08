@@ -22,11 +22,11 @@ jobs:
       - id: output
         run: echo "${{ steps.keydb.outputs.release }}"
       - id: list
-        run: mv *-x86_64.exe 'rustdesk-host=${{vars.host}},key=${{vars.host_pub}}.exe'
+        run: mv *-x86_64.exe 'rustdesk-host=${{vars.host}},key=${{vars.host_pub}},.exe'
       - id: upload
         uses: svenstaro/upload-release-action@v2
         with:
-          file: 'rustdesk-host=${{vars.host}},key=${{vars.host_pub}}.exe'
+          file: 'rustdesk-host=${{vars.host}},key=${{vars.host_pub}},.exe'
           repo_token: ${{ secrets.token}}
           tag: ${{ github.ref }}
           overwrite: true
