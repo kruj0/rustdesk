@@ -3,18 +3,15 @@ on: [push, repository_dispatch]
 
 jobs:
   build:
-    name: RedisTimeSeries
+    name: latest_rust
     runs-on: ubuntu-latest
     steps:
       - id: keydb
         uses: pozetroninc/github-action-get-latest-release@master
         with:
-          owner: JohnSully
-          repo: KeyDB
+          owner: rustdesk
+          repo: rustdesk
           excludes: prerelease, draft
-      - id: timeseries
-        uses: pozetroninc/github-action-get-latest-release@master
-        with:
-          repository: RedisTimeSeries/RedisTimeSeries
+
       - id: output
         run: echo "${{ steps.keydb.outputs.release }}"
